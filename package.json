@@ -1,0 +1,32 @@
+{
+  "name": "kubectl-kui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node_modules/@kui-shell/core/main/main.js",
+  "scripts": {
+    "mac": "PLATFORM=mac NO_INSTALLER=true kui-build-electron",
+    "postinstall": "kui-compile && KUI_STAGE=$(cd . && pwd) CLIENT_HOME=$(cd . && pwd) node node_modules/@kui-shell/builder/lib/configure.js && (cd packages/app/build && rm -rf css && mkdir css && cd css && for i in ../../../../node_modules/@kui-shell/core/web/css/*; do ln -s $i; done && for i in ../../../../theme/css/*; do ln -s $i; done)",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:nickm/kubectl-kui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@kui-shell/builder": "^4.3.0-dev.4410.6",
+    "mocha": "6.2.0",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.7.5",
+    "electron": "6.0.8",
+    "spectron": "8.0.0",
+    "typescript": "3.6.3"
+  },
+  "dependencies": {
+    "@kui-shell/core": "^4.3.0-dev.4410.6",
+    "@kui-shell/plugin-k8s": "^4.3.0-dev.4410.6",
+    "@kui-shell/plugin-sample": "file:build/plugins/plugin-sample/src"
+  }
+}
