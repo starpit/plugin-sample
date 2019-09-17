@@ -16,17 +16,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@kui-shell/builder": "^4.3.0-dev.4410.6",
-    "mocha": "6.2.0",
+    "@kui-shell/builder": "^4.4.1-dev.4543.31",
     "@types/mocha": "5.2.7",
     "@types/node": "12.7.5",
     "electron": "6.0.8",
+    "mocha": "6.2.0",
     "spectron": "8.0.0",
     "typescript": "3.6.3"
   },
   "dependencies": {
-    "@kui-shell/core": "^4.3.0-dev.4410.6",
-    "@kui-shell/plugin-k8s": "^4.3.0-dev.4410.6",
-    "@kui-shell/plugin-sample": "file:build/plugins/plugin-sample/src"
+    "@kui-shell/core": "^4.4.1-dev.4537.28",
+    "@kui-shell/plugin-k8s": "^4.4.1-dev.4537.28"
   }
 }
