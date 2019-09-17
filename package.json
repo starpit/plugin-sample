@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@kui-shell/core": "^4.4.1-dev.4537.28",
+    "@kui-shell/plugin-core-support": "^4.4.1-dev.4545.32",
     "@kui-shell/plugin-k8s": "^4.4.1-dev.4537.28"
   }
 }
