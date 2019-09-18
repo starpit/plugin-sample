@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@kui-shell/builder": "^4.4.1-dev.4543.31",
+    "@kui-shell/builder": "^4.4.1-dev.4563.38",
     "@types/mocha": "5.2.7",
     "@types/node": "12.7.5",
     "@types/webdriverio": "^4.13.3",
