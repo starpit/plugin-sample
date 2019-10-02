@@ -14,22 +14,13 @@
  * limitations under the License.
  */
 
-// Notes: this is part of the Kui core API
-import { Commands } from '@kui-shell/core'
+import { Tables } from '@kui-shell/core'
 
-/**
- * A simple command handler that returns a string Response
- *
- */
-const sayHello = (): Commands.Response => {
-  return 'hello world'
-}
-
-/**
- * This is the exported module. It registers a handler for "sample hello" commands
- *
- */
-export default (commandTree: Commands.Registrar) => {
-  const cmd = commandTree.listen('/sample/hello', sayHello)
-  commandTree.synonym('/sample/hi', sayHello, cmd)
-}
+export default (): Tables.Table => ({
+  header: { name: 'header:1', attributes: [{ value: 'header:2' }, { value: 'header:3' } ]},
+  body: [
+    { name: 'cell:1 row:1', attributes: [{ value: 'cell:2 row:1' }, { value: 'cell:3 row:1' } ]},
+    { name: 'cell:1 row:2', attributes: [{ value: 'cell:2 row:2' }, { value: 'cell:3 row:2' } ]},
+    { name: 'cell:1 row:3', attributes: [{ value: 'cell:2 row:3' }, { value: 'cell:3 row:3' } ]}
+  ]
+})

@@ -14,22 +14,23 @@
  * limitations under the License.
  */
 
-// Notes: this is part of the Kui core API
-import { Commands } from '@kui-shell/core'
+import { loremIpsum } from "lorem-ipsum"
+import imageContent from './image'
 
-/**
- * A simple command handler that returns a string Response
- *
- */
-const sayHello = (): Commands.Response => {
-  return 'hello world'
-}
+export default () => {
+  const dom = document.createElement('div')
 
-/**
- * This is the exported module. It registers a handler for "sample hello" commands
- *
- */
-export default (commandTree: Commands.Registrar) => {
-  const cmd = commandTree.listen('/sample/hello', sayHello)
-  commandTree.synonym('/sample/hi', sayHello, cmd)
+  // these are convenience classes offered by Kui; you can always roll
+  // your own css content
+  dom.classList.add('padding-content', 'scrollable', 'page-content')
+
+  const paragraph1 = document.createElement('p')
+  paragraph1.innerText = loremIpsum({ count: 20 })
+  dom.appendChild(paragraph1)
+
+  const paragraph2 = document.createElement('p')
+  paragraph2.appendChild(imageContent())
+  dom.appendChild(paragraph2)
+
+  return dom
 }

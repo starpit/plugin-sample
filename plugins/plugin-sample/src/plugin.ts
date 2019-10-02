@@ -14,17 +14,23 @@
  * limitations under the License.
  */
 
-import { CommandRegistrar } from '@kui-shell/core/models/command'
+import { Commands } from '@kui-shell/core'
 
 import sayHello from './lib/cmds/say-hello'
 import openSidecar from './lib/cmds/open-sidecar'
-import createEcho from './lib/cmds/create-echo'
+import modes from './lib/cmds/modes'
+import show from './lib/cmds/show'
+import table from './lib/cmds/table'
 
-export default async (commandTree: CommandRegistrar) => {
+export default async (commandTree: Commands.Registrar) => {
   commandTree.subtree('/sample', { docs: 'Sample Kui plugins' })
 
   // commands
-  await sayHello(commandTree)
-  await openSidecar(commandTree)
-  await createEcho(commandTree)
+  await Promise.all([
+    sayHello(commandTree),
+    openSidecar(commandTree),
+    modes(commandTree),
+    show(commandTree),
+    table(commandTree)
+  ])
 }

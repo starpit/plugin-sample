@@ -14,22 +14,16 @@
  * limitations under the License.
  */
 
-// Notes: this is part of the Kui core API
-import { Commands } from '@kui-shell/core'
+import { loremIpsum } from "lorem-ipsum"
 
-/**
- * A simple command handler that returns a string Response
- *
- */
-const sayHello = (): Commands.Response => {
-  return 'hello world'
-}
+export default () => `
+# Markdown Content
+This should render as HTML.
 
-/**
- * This is the exported module. It registers a handler for "sample hello" commands
- *
- */
-export default (commandTree: Commands.Registrar) => {
-  const cmd = commandTree.listen('/sample/hello', sayHello)
-  commandTree.synonym('/sample/hi', sayHello, cmd)
-}
+[Link Fun](https://github.com/IBM/kui)
+
+- ${loremIpsum()}
+- ${loremIpsum({ count: 2 })}
+- ${loremIpsum({ count: 3 })}
+- ${loremIpsum()}
+`

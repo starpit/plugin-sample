@@ -4,9 +4,14 @@
   "description": "",
   "main": "node_modules/@kui-shell/core/main/main.js",
   "scripts": {
-    "mac": "PLATFORM=mac NO_INSTALLER=true kui-build-electron",
-    "postinstall": "kui-compile && KUI_STAGE=$(cd . && pwd) CLIENT_HOME=$(cd . && pwd) node node_modules/@kui-shell/builder/lib/configure.js && (cd packages/app/build && rm -rf css && mkdir css && cd css && for i in ../../../../node_modules/@kui-shell/core/web/css/*; do ln -s $i; done && for i in ../../../../theme/css/*; do ln -s $i; done)",
-    "test": "echo \"for now, we are only testing npm install\""
+    "compile": "kui-compile",
+    "watch": "tsc --build . --watch",
+    "webpack": "npm run -s pty:nodejs && kui-watch-webpack",
+    "proxy": "npm run -s pty:nodejs && kui-run-proxy",
+    "pty:rebuild": "if [ -d node_modules/node-pty-prebuilt-multiarch ]; then cd node_modules/node-pty-prebuilt-multiarch && npm run install; fi",
+    "pty:electron": "if [ -d node_modules/node-pty-prebuilt-multiarch ]; then if [ ! -e node_modules/node-pty-prebuilt-multiarch/.npmrc ]; then cp node_modules/@kui-shell/builder/npmrc node_modules/node-pty-prebuilt-multiarch/.npmrc && npm run pty:rebuild; fi; fi",
+    "pty:nodejs": "if [ -e node_modules/node-pty-prebuilt-multiarch/.npmrc ]; then rm -f node_modules/node-pty-prebuilt-multiarch/.npmrc; npm run pty:rebuild; fi",
+    "start": "npm run -s compile && npm run -s pty:electron && electron . shell"
   },
   "repository": {
     "type": "git",
@@ -16,9 +21,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@kui-shell/builder": "^4.4.1-dev.4563.38",
+    "@kui-shell/builder": "5.0.0",
     "@types/mocha": "5.2.7",
     "@types/node": "12.7.5",
+    "@types/uuid": "^3.4.5",
     "@types/webdriverio": "^4.13.3",
     "electron": "6.0.8",
     "mocha": "6.2.0",
@@ -26,8 +32,8 @@
     "typescript": "3.6.3"
   },
   "dependencies": {
-    "@kui-shell/core": "^4.4.1-dev.4556.36",
-    "@kui-shell/plugin-core-support": "^4.4.1-dev.4545.32",
-    "@kui-shell/plugin-k8s": "^4.4.1-dev.4537.28"
+    "@kui-shell/core": "5.0.0",
+    "@kui-shell/plugin-core-support": "5.0.0",
+    "@kui-shell/plugin-sample": "file:plugins/plugin-sample"
   }
 }
