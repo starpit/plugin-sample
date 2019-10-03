@@ -29,6 +29,8 @@ This project demonstrates adding three commands to Kui:
   displayed in the
   sidecar. [Source](plugins/plugin-sample/src/lib/cmds/modes.ts)
 
+![Command Showcase](docs/showcase.png)
+
 # Local Development with Electron
 
 To develop your plugin, it is convenient to run it against a local
