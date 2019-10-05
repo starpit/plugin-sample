@@ -15,5 +15,8 @@
     "@kui-shell/core": "^5.0.0",
     "lorem-ipsum": "^2.0.3",
     "uuid": "^3.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
