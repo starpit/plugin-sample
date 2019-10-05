@@ -55,7 +55,6 @@ const showRow = ({ argvNoOptions }: Commands.Arguments): Models.ResourceWithMeta
     contentType
   }
 
-  console.error('!!!!!!!', resource)
   return resource
 }
 
@@ -64,5 +63,9 @@ const showRow = ({ argvNoOptions }: Commands.Arguments): Models.ResourceWithMeta
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  const cmd = commandTree.listen('/sample/show/row', showRow)
+  const cmd = commandTree.listen('/sample/show/row', showRow, {
+    usage: {
+      docs: 'A row-click handler for the table command'
+    }
+  })
 }

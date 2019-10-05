@@ -30,6 +30,10 @@ const sayHello = (): Commands.Response => {
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  const cmd = commandTree.listen('/sample/hello', sayHello)
+  const cmd = commandTree.listen('/sample/hello', sayHello, {
+    usage: {
+      docs: 'The obligate hello world!'
+    }
+  })
   commandTree.synonym('/sample/hi', sayHello, cmd)
 }

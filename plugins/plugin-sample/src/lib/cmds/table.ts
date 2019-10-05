@@ -37,5 +37,9 @@ function table(): Tables.Table {
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  commandTree.listen('/sample/table', table)
+  commandTree.listen('/sample/table', table, {
+    usage: {
+      docs: 'A showcase of the Table view'
+    }
+  })
 }

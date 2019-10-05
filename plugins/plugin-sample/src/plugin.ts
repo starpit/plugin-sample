@@ -23,8 +23,6 @@ import show from './lib/cmds/show'
 import table from './lib/cmds/table'
 
 export default async (commandTree: Commands.Registrar) => {
-  commandTree.subtree('/sample', { docs: 'Sample Kui plugins' })
-
   // commands
   await Promise.all([
     sayHello(commandTree),
