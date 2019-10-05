@@ -19,7 +19,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@kui-shell/builder": "5.0.0",
     "@types/mocha": "5.2.7",
