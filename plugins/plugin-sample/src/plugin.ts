@@ -17,7 +17,6 @@
 import { Commands } from '@kui-shell/core'
 
 import sayHello from './lib/cmds/say-hello'
-import openSidecar from './lib/cmds/open-sidecar'
 import modes from './lib/cmds/modes'
 import show from './lib/cmds/show'
 import table from './lib/cmds/table'
@@ -26,7 +25,6 @@ export default async (commandTree: Commands.Registrar) => {
   // commands
   await Promise.all([
     sayHello(commandTree),
-    openSidecar(commandTree),
     modes(commandTree),
     show(commandTree),
     table(commandTree)
