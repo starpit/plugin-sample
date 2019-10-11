@@ -21,19 +21,19 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@kui-shell/builder": "5.0.0",
+    "@kui-shell/builder": "5.1.2",
     "@types/mocha": "5.2.7",
-    "@types/node": "12.7.5",
+    "@types/node": "12.7.12",
     "@types/uuid": "^3.4.5",
     "@types/webdriverio": "^4.13.3",
-    "electron": "6.0.8",
-    "mocha": "6.2.0",
+    "electron": "6.0.12",
+    "mocha": "6.2.1",
     "spectron": "8.0.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "dependencies": {
-    "@kui-shell/core": "5.0.0",
-    "@kui-shell/plugin-core-support": "5.0.0",
+    "@kui-shell/core": "5.1.2",
+    "@kui-shell/plugin-core-support": "5.1.2",
     "@kui-shell/plugin-sample": "file:plugins/plugin-sample"
   }
 }
