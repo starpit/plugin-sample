@@ -65,6 +65,9 @@ const showRow = ({ argvNoOptions }: Commands.Arguments): Models.ResourceWithMeta
 export default (commandTree: Commands.Registrar) => {
   const cmd = commandTree.listen('/sample/show/row', showRow, {
     usage: {
+      required: [
+        { name: 'rowIndex', numeric: true, docs: 'A row index into the response of the table command' }
+      ],
       docs: 'A row-click handler for the table command'
     }
   })
