@@ -21,8 +21,8 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@kui-shell/builder": "5.1.5",
-    "@kui-shell/core": "^5.1.5",
+    "@kui-shell/builder": "5.2.0",
+    "@kui-shell/core": "^5.2.0",
     "@types/mocha": "5.2.7",
     "@types/node": "12.7.12",
     "@types/uuid": "^3.4.5",
