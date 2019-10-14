@@ -55,11 +55,11 @@ function modes(): UI.MultiModalResponse {
 }
 
 /**
- * Here is where we register our command handler
+ * Here is where we register our command.
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  commandTree.listen('/sample/modes', modes, {
+  commandTree.listen('/modes', modes, {
     usage: {
       docs: 'A showcase of MultiModalResponse'
     }

@@ -26,14 +26,15 @@ const sayHello = (): Commands.Response => {
 }
 
 /**
- * This is the exported module. It registers a handler for "sample hello" commands
+ * Here is where we register our commands: a handler for "hello", and
+ * an alias of that command as "hi".
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  const cmd = commandTree.listen('/sample/hello', sayHello, {
+  const cmd = commandTree.listen('/hello', sayHello, {
     usage: {
       docs: 'The obligate hello world!'
     }
   })
-  commandTree.synonym('/sample/hi', sayHello, cmd)
+  commandTree.synonym('/hi', sayHello, cmd)
 }

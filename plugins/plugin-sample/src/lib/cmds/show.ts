@@ -59,11 +59,11 @@ const showRow = ({ argvNoOptions }: Commands.Arguments): Models.ResourceWithMeta
 }
 
 /**
- * This is the exported module. It registers a handler for "sample hello" commands
+ * Here is where we register our command.
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  const cmd = commandTree.listen('/sample/show/row', showRow, {
+  const cmd = commandTree.listen('/show/row', showRow, {
     usage: {
       required: [
         { name: 'rowIndex', numeric: true, docs: 'A row index into the response of the table command' }

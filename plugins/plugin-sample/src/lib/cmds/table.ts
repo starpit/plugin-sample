@@ -19,10 +19,10 @@
  *
  */
 
-import tableContent from './content/table-with-drilldown'
-
 // Notes: this is part of the Kui core API
 import { Commands, Tables } from '@kui-shell/core'
+
+import tableContent from './content/table-with-drilldown'
 
 /**
  * Construct a Tables.Table response
@@ -33,11 +33,11 @@ function table(): Tables.Table {
 }
 
 /**
- * Here is where we register our command handler
+ * Here is where we register our command.
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  commandTree.listen('/sample/table', table, {
+  commandTree.listen('/table', table, {
     usage: {
       docs: 'A showcase of the Table view'
     }
