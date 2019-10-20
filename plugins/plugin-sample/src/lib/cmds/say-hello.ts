@@ -33,7 +33,7 @@ const sayHello = (): Commands.Response => {
 export default (commandTree: Commands.Registrar) => {
   const cmd = commandTree.listen('/hello', sayHello, {
     usage: {
-      docs: 'The obligate hello world!'
+      docs: 'The obligatory hello world'
     }
   })
   commandTree.synonym('/hi', sayHello, cmd)
