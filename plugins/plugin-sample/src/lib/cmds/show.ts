@@ -37,7 +37,12 @@ const rowContent = [
  * resource `content` that might be returned by this command.
  */
 const showRow = ({ argvNoOptions }: Commands.Arguments): Models.ResourceWithMetadata<string | HTMLElement> => {
-  const rowId = parseInt(argvNoOptions[argvNoOptions.length - 1], 10)
+  const rowStr = argvNoOptions[argvNoOptions.length - 1]
+  const rowId = !rowStr ? 1 : parseInt(rowStr, 10)
+  if (rowId < 1 || rowId > rowContent.length) {
+    throw new Error('row index out of range')
+  }
+
   const { content, contentType } = rowContent[rowId - 1]
 
   const toolbarText = new UI.ToolbarText(rowId === 1 ? 'info' : rowId === 2 ? 'warning' : 'error',
