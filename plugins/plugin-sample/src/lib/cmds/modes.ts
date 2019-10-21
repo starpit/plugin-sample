@@ -59,7 +59,7 @@ function modes(): UI.MultiModalResponse {
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  commandTree.listen('/modes', modes, {
+  commandTree.listen('/sample/modes', modes, {
     usage: {
       docs: 'A showcase of MultiModalResponse'
     }

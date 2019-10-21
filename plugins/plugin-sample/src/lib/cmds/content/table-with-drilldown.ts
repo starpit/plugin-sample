@@ -19,8 +19,8 @@ import { Tables } from '@kui-shell/core'
 export default (): Tables.Table => ({
   header: { name: 'header:1', attributes: [{ value: 'header:2' }, { value: 'header:3' } ]},
   body: [
-    { name: 'cell:1 row:1', onclick: `show row 1`, attributes: [{ value: 'cell:2 row:1' }, { value: 'cell:3 row:1' } ]},
-    { name: 'cell:1 row:2', onclick: `show row 2`, attributes: [{ value: 'cell:2 row:2' }, { value: 'cell:3 row:2' } ]},
-    { name: 'cell:1 row:3', onclick: `show row 3`, attributes: [{ value: 'cell:2 row:3' }, { value: 'cell:3 row:3' } ]}
+    { name: 'cell:1 row:1', onclick: `sample show row 1`, attributes: [{ value: 'cell:2 row:1' }, { value: 'cell:3 row:1' } ]},
+    { name: 'cell:1 row:2', onclick: `sample show row 2`, attributes: [{ value: 'cell:2 row:2' }, { value: 'cell:3 row:2' } ]},
+    { name: 'cell:1 row:3', onclick: `sample show row 3`, attributes: [{ value: 'cell:2 row:3' }, { value: 'cell:3 row:3' } ]}
   ]
 })

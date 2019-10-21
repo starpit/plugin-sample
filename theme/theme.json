@@ -19,8 +19,7 @@
     "en_US": "**Kui** is a platform for enhancing the terminal experience with visualizations. It provides users a modern alternative to ASCII terminals and web-based consoles. It provides tool developers an opportunity to unify these experiences.\n\n---\n\n[Home Page](http://kui.tools)\n\n[GitHub](https://github.com/IBM)\n\n[Bugs](https://github.com/IBM/kui/issues/new)"
   },
   "gettingStarted": "tutorial play @tutorials/getting-started",
-  "about": [{ "mode": "contexts", "label": "Contexts", "direct": "about --mode contexts --content contexts" }],
-  "defaultTheme": "Dark",
+  "defaultTheme": "Carbon Gray10",
   "themes": [
     {
       "name": "Light",
@@ -38,7 +37,7 @@
     {
       "name": "Carbon Gray10",
       "css": ["themes/carbon-gray10.css", "top-tab-stripe-alt.css"],
-      "attrs": ["kui--alternate"],
+      "attrs": ["kui--alternate", "kui--sidecar-inverted"],
       "style": "light"
     },
     {
@@ -68,7 +67,7 @@
   "css": ["_test.css", "kui-ui.css", "kui-tables.css", "carbon-overrides.css"],
   "bodyCss": ["kui"],
   "tabStripe": "top-tab-stripe.css",
-  "tableStyle": "Medium",
+  "tableStyle": "Light",
   "appIcon": "icons/png/kui.png",
   "largeIcon": "icons/svg/kui.svg",
   "wideIcon": "icons/svg/kui-wide.svg",

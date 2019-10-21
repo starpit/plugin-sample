@@ -20,14 +20,17 @@ npm install
 # How this Project extends Kui
 
 This project demonstrates adding three commands to Kui: 
-- **hello**: the obligate hello world, a command that returns a
+- **sample hello**: the obligate hello world, a command that returns a
   string. [Source](plugins/plugin-sample/src/lib/cmds/say-hello.ts)
-- **table**: a command that emits a table in the REPL output with
+- **sample table**: a command that emits a table in the REPL output with
   clickable rows; each row click will open an entity in the
   sidecar. [Source](plugins/plugin-sample/src/lib/cmds/table.ts)
-- **modes**: a command that produces a multi-modal response that is
+- **sample modes**: a command that produces a multi-modal response that is
   displayed in the
   sidecar. [Source](plugins/plugin-sample/src/lib/cmds/modes.ts)
+  
+It also installs a fourth, `sample show row`, that is used in service
+of the `onclick` handler for the rows of the `sample table` output.
 
 ![Command Showcase](docs/showcase.png)
 

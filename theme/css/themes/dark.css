@@ -16,15 +16,14 @@ body[kui-theme="Dark"] {
   --color-base0A: #fdd13a; /* YELLOW: Classes, Markup Bold, Search Text Background */
   --color-base0B: #3dbb61; /* GREEN: Strings, Inherited Class, Markup Code, Diff Inserted */
   --color-base0C: #6ccaff; /* CYAN: Support, Regular Expressions, Escape Characters, Markup Quotes */
-  --color-base0D: #1999b3; /* BLUE: Functions, Methods, Attribute IDs, Headings */
+  --color-base0D: #97c1ff; /* BLUE: Functions, Methods, Attribute IDs, Headings */
   --color-base0E: #ffa0c2; /* MAGENTA: Keywords, Storage, Selector, Markup Italic, Diff Changed */
   --color-base0F: #d0b0ff; /* BROWN: Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
 
   /* SidecarThin */
-  --color-background-inverted01: var(--color-stripe-01);
-  --color-background-inverted02: var(--color-stripe-02);
+  --color-background-inverted01: var(--color-sidecar-background);
+  --color-background-inverted02: var(--color-sidecar-header);
   --color-text-inverted01: var(--color-text-01);
-  --color-text-inverted02: var(--color-text-01);
 
   --color-table-border1: #616466;
   --color-table-border2: #a5a9ad;
@@ -37,12 +36,7 @@ body[kui-theme="Dark"] {
   --color-sidecar-toolbar-background: #D7DCE3;
   --color-sidecar-toolbar-foreground: var(--color-base02);
 
-  --color-content-divider: #3F4548;
-  --color-selection-background: #0074C7;
-
-  --color-light-red: hsla(357, 96%, 64%, 50%);
-  --color-light-green: hsla(134, 43%, 52%, 50%);
-  --color-light-yellow: hsla(46, 98%, 61%, 50%);
+  --color-selection-background: var(--color-base05);
 
   --color-brand-03: #418cff;
   --color-tag-beta-fill: #202529;
@@ -54,7 +48,7 @@ body[kui-theme="Dark"] {
   --color-confirm-foreground:var(--color-base05);
 
   /* table header row */
-  --color-ui-06: #373d42;
+  --color-ui-06: #1a2024;
 }
 
 body[kui-theme="Dark"] .header-cell {
