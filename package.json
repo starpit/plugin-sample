@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.ibm.com:nickm/kubectl-kui.git"
+    "url": "git@github.com:kui-shell/plugin-sample.git"
   },
   "keywords": [],
   "author": "",
