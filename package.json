@@ -21,14 +21,14 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@kui-shell/builder": "5.2.0",
-    "@kui-shell/core": "^5.2.0",
+    "@kui-shell/builder": "5.2.17",
+    "@kui-shell/core": "^5.2.17",
     "@types/mocha": "5.2.7",
-    "@types/node": "12.7.12",
+    "@types/node": "12.12.0",
     "@types/uuid": "^3.4.5",
     "@types/webdriverio": "^4.13.3",
     "electron": "6.0.12",
-    "mocha": "6.2.1",
+    "mocha": "6.2.2",
     "spectron": "8.0.0",
     "typescript": "3.6.4"
   },
