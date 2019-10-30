@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
-import { Table } from '@kui-shell/core/api/table-models'
+import { isHeadless } from '@kui-shell/core/api/capabilities'
+import { kind } from './lib/cmds/modes'
+import { modes } from './lib/cmds/content/modes'
 
-const table: Table = {
-  header: { name: 'header:1', attributes: [{ value: 'header:2' }, { value: 'header:3' } ]},
-  body: [
-    { name: 'cell:1 row:1', attributes: [{ value: 'cell:2 row:1' }, { value: 'cell:3 row:1' } ]},
-    { name: 'cell:1 row:2', attributes: [{ value: 'cell:2 row:2' }, { value: 'cell:3 row:2' } ]},
-    { name: 'cell:1 row:3', attributes: [{ value: 'cell:2 row:3' }, { value: 'cell:3 row:3' } ]}
-  ]
+/**
+ * This is the module
+ *
+ */
+export default async () => {
+  if (!isHeadless()) {
+    const { registerModeWhen } = await import('@kui-shell/core/api/registrars')
+    await Promise.all(modes.map(registerModeWhen(_ => _.kind === kind)))
+  }
 }
-export default table

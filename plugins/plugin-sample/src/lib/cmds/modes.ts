@@ -20,46 +20,65 @@
  *
  */
 
-// Notes: this is part of the Kui core API
 import { Commands, UI } from '@kui-shell/core'
+import { defaultModes } from './content/modes'
 
-import htmlTextContent from './content/text-html'
-import domContent from './content/dom'
-import plainTextContent from './content/text-plain'
-import markdownTextContent from './content/text-markdown'
-import imageContent from './content/image'
-import tableContent from './content/table'
+/** the kind of our resource */
+export const kind = 'kindpart'
 
-/**
- * Construct a MultiModalResponse with a variety of modes
- *
- */
-function modes(): UI.MultiModalResponse {
-  // you should see the various parts of the metadata decorate the
-  // resulting view
-  return {
-    kind: 'kindpart',
-    metadata: {
-      name: 'this is the name part',
-      namespace: 'this is the namespace part'
-    },  
-    modes: [
-      { mode: 'html', label: 'HTML Text', content: htmlTextContent(), contentType: 'text/html' },
-      { mode: 'dom', label: 'HTML DOM', content: domContent() },
-      { mode: 'text', label: 'Plain Text', content: plainTextContent() },
-      { mode: 'image', content: imageContent() },
-      { mode: 'markdown', content: markdownTextContent(), contentType: 'text/markdown' },
-      { mode: 'table', content: tableContent() }
-    ]
+/** A Kui response needs some metadata to describe the resource */
+const metadata = {
+  kind,
+  metadata: {
+    name: 'this is the name part',
+    namespace: 'this is the namespace part'
   }
 }
 
 /**
- * Here is where we register our command.
+ * Command handler that constructs a MultiModalResponse with the given
+ * set of modes. The core Kui presentation engine will take care of
+ * adding any pre-registered modes on top of the default ones returned
+ * by this command.
+ *
+ * After executing the command, you should see the various parts of
+ * the metadata decorate the resulting view.
+ *
+ */
+const doModes = (defaultModes: UI.MultiModalMode[] = []): () => UI.MultiModalResponse => {
+  // We return a command handler. More generally, command handlers can
+  // take a Commands.Arguments as input. In this case, we do not
+  // process any command line arguments, hence our command handler is
+  // nullary.
+  return () => Object.assign(metadata, { modes: defaultModes })
+}
+
+/**
+ * Here is where we register our command. The modes of a
+ * `MultiModalResponse` can either be manifested by the command
+ * handler (as is the case with "sample modes"), or can be
+ * pre-registered (as is the case with "sample modes2").
+ *
+ * The pre-registration approach allows you to decorate resources
+ * managed by other plugins. For example, `pluginA` might offer a
+ * command to fetch and display a set of default modes associated with
+ * a resource type; then, `pluginB` may register a set of modes that
+ * decorate that resource type with additional mode tabs. In that
+ * scenario, `pluginB` need not even add commands; it suffices, in
+ * that scenario, for `pluginB` only to register its new modes.
  *
  */
 export default (commandTree: Commands.Registrar) => {
-  commandTree.listen('/sample/modes', modes, {
+  // "sample modes": this command returns a complete list of modes
+  commandTree.listen('/sample/modes', doModes(defaultModes), {
+    usage: {
+      docs: 'A showcase of MultiModalResponse'
+    }
+  })
+
+  // "sample modes2": this command returns an empty list of modes, and
+  // instead relies on the pre-registered modes (see ../../preload.ts)
+  commandTree.listen('/sample/modes2', doModes(), {
     usage: {
       docs: 'A showcase of MultiModalResponse'
     }
